@@ -41,3 +41,6 @@ func change_scene(next : Global.Scenes, speed = 1.0, force = true):
 	if ((current_scene != next || force) and not startCoolDown):
 		#startCoolDown = true
 		Global.on_transition_begin.emit(speed)
+
+func timer(tiempo = 1.0):
+	return get_tree().create_timer(tiempo).timeout
