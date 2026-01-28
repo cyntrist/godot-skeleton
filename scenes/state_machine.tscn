@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c161kl18xdbk1"]
+[gd_scene format=3 uid="uid://c161kl18xdbk1"]
 
 [ext_resource type="Script" uid="uid://bqnm45w65wo6p" path="res://scripts/state_machine.gd" id="1_nj0rb"]
 [ext_resource type="PackedScene" uid="uid://dot54uqxpvioo" path="res://objects/canvas/shader.tscn" id="2_6rk0d"]
@@ -7,28 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://cpbv42xhe4um5" path="res://scenes/game_scene.tscn" id="4_okvjo"]
 [ext_resource type="PackedScene" uid="uid://bsth51shqxg7x" path="res://objects/canvas/fade.tscn" id="5_yux3b"]
 
-[node name="State Machine" type="Node" node_paths=PackedStringArray("scenes")]
+[node name="State Machine" type="Node" unique_id=706864893 node_paths=PackedStringArray("scenes")]
 script = ExtResource("1_nj0rb")
 scenes = [NodePath("Scenes/IntroScene"), NodePath("Scenes/GameScene"), NodePath("Scenes/NullScene")]
 
-[node name="Scenes" type="Node" parent="."]
+[node name="Scenes" type="Node" parent="." unique_id=1214724034]
 
-[node name="NullScene" parent="Scenes" instance=ExtResource("3_s46hd")]
+[node name="NullScene" parent="Scenes" unique_id=886711220 instance=ExtResource("3_s46hd")]
 process_mode = 4
 visible = false
 
-[node name="GameScene" parent="Scenes" instance=ExtResource("4_okvjo")]
+[node name="GameScene" parent="Scenes" unique_id=1846389799 instance=ExtResource("4_okvjo")]
 process_mode = 4
 visible = false
 
-[node name="IntroScene" parent="Scenes" instance=ExtResource("2_a0fpy")]
+[node name="IntroScene" parent="Scenes" unique_id=1264860877 instance=ExtResource("2_a0fpy")]
 
-[node name="Fade" parent="." instance=ExtResource("5_yux3b")]
+[node name="Fade" parent="." unique_id=1570520292 instance=ExtResource("5_yux3b")]
 
-[node name="Shader" parent="." instance=ExtResource("2_6rk0d")]
+[node name="Shader" parent="." unique_id=51001093 instance=ExtResource("2_6rk0d")]
 
-[node name="Sound" type="Node" parent="."]
+[node name="Sound" type="Node" parent="." unique_id=296981727]
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="BGM" type="AudioStreamPlayer2D" parent="Sound" unique_id=815451259]
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="SFX" type="AudioStreamPlayer2D" parent="Sound" unique_id=679081870]

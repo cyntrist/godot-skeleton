@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="GodotBase"
 run/main_scene="uid://c161kl18xdbk1"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.09411765, 0.09411765, 0.09019608, 1)
 config/icon="res://icon.svg"
 
@@ -27,6 +31,10 @@ window/size/viewport_height=720
 window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
+
+[dotnet]
+
+project/assembly_name="GodotBase"
 
 [input]
 
