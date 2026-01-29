@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://j5cotml288fn" path="res://addons/DialogueSystem/ui/DescisionBox/DecisionBox.gd" id="1_3lveg"]
 
+
 [node name="DecisionBox" type="Control" unique_id=611704795]
 layout_mode = 3
 anchors_preset = 0
