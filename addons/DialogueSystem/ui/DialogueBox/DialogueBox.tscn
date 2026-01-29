@@ -52,4 +52,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "continue"
 
-[connection signal="pressed" from="ButtonContinue" to="." method="_pressed"]
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1729048087]

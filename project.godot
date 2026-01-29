@@ -56,7 +56,7 @@ project/assembly_name="GodotBase"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/mi_proyecto_translations.en.translation", "res://localization/mi_proyecto_translations.es.translation")
+locale/translations=PackedStringArray("res://localization/Example/mi_proyecto_translations.en.translation", "res://localization/Example/mi_proyecto_translations.es.translation")
 
 [rendering]
 

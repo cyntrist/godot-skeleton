@@ -6,6 +6,8 @@ const DECISION_BOX = preload("uid://omqusqkky5ti")
 
 @export var charactersPath: String
 @export var dialoguesPath: String
+@export var audiosPath: String = "res://assets/audio/" 
+@export var fontsPath: String = "res://assets/font/" 
 
 var loader:= DialogueLoader.new()
 var current_nodes
@@ -22,8 +24,8 @@ func _ready() -> void:
 	self.add_child(decision_box)
 	
 	loader.load_all(charactersPath, dialoguesPath)
-	
-	start(0)
+	#Descomentar para probar
+	#start(0)
 
 func start(dialogue_id):
 	current_nodes = loader.dialogues[dialogue_id]
@@ -46,9 +48,28 @@ func _show_node():
 		"END":
 			show_dialogue(true)
 
+func _load_font(font_name: String) -> Font:
+	if font_name == "" or font_name == "Sin fuente":
+		return null
+
+	var path := fontsPath + font_name
+	if not ResourceLoader.exists(path):
+		push_warning("Fuente no encontrada: " + path)
+		return null
+
+	return ResourceLoader.load(path) as Font
+
+func _load_audio(audio_name: String):
+	if not audio_name or audio_name == "" or audio_name == "Sin audio":  
+		return null  
+	var path := audiosPath + audio_name
+	return ResourceLoader.load(path)
+
 func show_dialogue(is_end := false):
 	var text = current_node.text_key
 	var character = loader.characters[current_node.character]
+	var font = _load_font(character.get("font"))
+	var audio = _load_audio(character.get("sound"))
 	
 	dialogue_box.visible = true
 	decision_box.visible = false
@@ -57,7 +78,8 @@ func show_dialogue(is_end := false):
 		text,
 		current_node.character,
 		character.Color,
-		character.font
+		font,
+		audio
 	)
 	if not is_end:
 		dialogue_box.on_continue = next_node
@@ -65,12 +87,15 @@ func show_dialogue(is_end := false):
 func show_decision():
 	var question = current_node.text_key
 	var character = loader.characters[current_node.character]
+	var font = _load_font(character.get("font"))
+	var audio = _load_audio(character.get("sound"))
 	
 	decision_box.display(
 		question,
 		current_node.character,
 		character.Color,
-		character.font
+		font,
+		audio
 	)
 	
 	dialogue_box.visible = false

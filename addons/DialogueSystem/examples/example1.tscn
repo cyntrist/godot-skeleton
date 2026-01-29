@@ -12,7 +12,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-charactersPath = "res://localization/mi_proyecto_characters.json"
-dialoguesPath = "res://localization/mi_proyecto_dialogues.json"
+charactersPath = "res://localization/Example/mi_proyecto_characters.json"
+dialoguesPath = "res://localization/Example/mi_proyecto_dialogues.json"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1160897708]
