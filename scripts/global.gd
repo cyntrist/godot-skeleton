@@ -18,6 +18,7 @@ enum Scenes { INTRO, GAME, NULL}
 ## sonido
 var sfx
 var bgm
+var sound
 
 var coolDown = 0.5
 var startCoolDown = false

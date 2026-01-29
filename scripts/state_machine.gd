@@ -5,6 +5,7 @@ extends Node
 
 @onready var bgm: AudioStreamPlayer2D = $Sound/BGM
 @onready var sfx: AudioStreamPlayer2D = $Sound/SFX
+@onready var sound = $Sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _ready() -> void:
 	Global.sm = self
 	Global.sfx = sfx
 	Global.bgm = bgm
+	Global.sound = sound
 	
 	## CONECTAR SEÑALES
 	Global.on_transition_end.connect(_on_fade_end)
@@ -54,5 +56,18 @@ func _on_fade_end() -> void: #justo antes del fadeout, la idea es que esto sea u
 	scenes[Global.next_scene].on_enable()
 	scenes[Global.next_scene].process_mode = Node.PROCESS_MODE_INHERIT
 
-	Global.current_scene = Global.next_scene	
+	Global.current_scene = Global.next_scene
 	
+	# actualiza la musica segun la escena
+	_update_bgm_for_scene()
+
+func _update_bgm_for_scene() -> void:
+	match Global.current_scene:
+		Global.Scenes.INTRO:
+			# Global.sound.play_bgm("intro_theme")
+			Global.sound.stop_bgm()
+		Global.Scenes.GAME:
+			# sample de prueba luego se cambia por el real
+			Global.sound.play_bgm("bgmusicSample")
+		Global.Scenes.NULL:
+			Global.sound.stop_bgm()
