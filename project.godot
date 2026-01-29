@@ -54,6 +54,10 @@ project/assembly_name="GodotBase"
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/mi_proyecto_translations.en.translation", "res://localization/mi_proyecto_translations.es.translation")
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.09411765, 0.09411765, 0.09019608, 1)
