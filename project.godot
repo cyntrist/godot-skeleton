@@ -17,7 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="godot-skeleton"
 run/main_scene="uid://c161kl18xdbk1"
 config/features=PackedStringArray("4.6", "Forward Plus")
-boot_splash/bg_color=Color(0.09411765, 0.09411765, 0.09019608, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://ok8ffgkn1wnd"
 config/icon="res://icon.svg"
 
 [autoload]
