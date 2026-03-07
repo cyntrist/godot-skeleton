@@ -2,10 +2,15 @@ extends Node
 
 ## SEÑALES
 # flujo
+@warning_ignore("unused_signal")
 signal on_transition_begin(speed)
+@warning_ignore("unused_signal")
 signal on_transition_end
+@warning_ignore("unused_signal")
 signal on_enable(scene)
+@warning_ignore("unused_signal")
 signal on_disable(scene)
+@warning_ignore("unused_signal")
 signal on_game_end()
 
 ## maquina de estados y variables de flujo
