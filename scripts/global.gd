@@ -10,7 +10,7 @@ signal on_game_end()
 
 ## maquina de estados y variables de flujo
 var sm # state machine
-var current_scene = Scenes.INTRO 
+var current_scene = Scenes.NULL 
 var next_scene = Scenes.INTRO
 ## MUY IMPORTANTE: MISMO ORDEN QUE EN EL SERIALIZED ARRAY DE LA STATEMACHINE
 enum Scenes { INTRO, GAME, NULL}

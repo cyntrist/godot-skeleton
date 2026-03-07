@@ -1,18 +1,14 @@
 extends Node
 
-@export var scenes: Array[Node] = [] 
+@export var scenes: Array[PackedScene] = [] 
 @onready var fade = $Fade
-
-@onready var bgm: AudioStreamPlayer2D = $Sound/BGM
-@onready var sfx: AudioStreamPlayer2D = $Sound/SFX
+var currentScene : Scene
 @onready var sound = $Sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## INICIALIZAR GLOBAL
 	Global.sm = self
-	Global.sfx = sfx
-	Global.bgm = bgm
 	Global.sound = sound
 	
 	## CONECTAR SEÑALES
@@ -20,7 +16,7 @@ func _ready() -> void:
 	Global.on_game_end.connect(_on_game_end)
 	
 	## PRIMER CAMBIO DE ESCENA
-	Global.change_scene(Global.Scenes.GAME)
+	Global.change_scene(Global.Scenes.INTRO)
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,16 +41,15 @@ func _on_game_end():
 	#fade.transition(speed)
 
 
-func _on_fade_end() -> void: #justo antes del fadeout, la idea es que esto sea un switch
+func _on_fade_end() -> void: #justo antes del fadeout
 	# escena a apagar
-	scenes[Global.current_scene].visible = false
-	scenes[Global.current_scene].on_disable()
-	scenes[Global.current_scene].process_mode = Node.PROCESS_MODE_DISABLED
-
+	if currentScene:
+		currentScene.on_disable()
+		currentScene.queue_free()
 	# escena a encender
-	scenes[Global.next_scene].visible = true
-	scenes[Global.next_scene].on_enable()
-	scenes[Global.next_scene].process_mode = Node.PROCESS_MODE_INHERIT
+	currentScene = scenes[Global.next_scene].instantiate()
+	$Scenes.add_child(currentScene)
+	currentScene.on_enable()
 
 	Global.current_scene = Global.next_scene
 	
